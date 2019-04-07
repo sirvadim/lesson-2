@@ -10,29 +10,28 @@ const Wrapper = styled.div`
   padding: ${({ theme }) => theme.paddings.main}px;
 `
 
-storiesOf('ui/pages', module).add('SignIn', () => {
+storiesOf('ui/pages', module).add('SignInConfirm', () => {
   return (
     <PageTemplate>
-      <Header title="Ввод номера телефона" />
+      <Header title="Введите код" />
       <Divider />
       <Flex1>
         <Wrapper>
           <HBox height={9} />
-          <Body2>На указанный телефон будет выслан код подтверждения</Body2>
+          <Body2>На указанный телефон выслан код подтверждения</Body2>
           <HBox height={20} />
           <TextField
-            label="Номер телефона"
-            startAdornment="+7"
-            placeholder="9XXXXXXXXX"
+            label="Код"
+            placeholder="1234"
             onChange={action('onChange')}
             value=""
           />
         </Wrapper>
-        <RequestStatus status="success" successMessage="Успешно!" />
+        <RequestStatus
+          status="loading"
+          loadingMessage="Отправляем код подтверждения..."
+        />
       </Flex1>
-      <Wrapper>
-        <ButtonAccent onPress={action('press')}>Отправить</ButtonAccent>
-      </Wrapper>
     </PageTemplate>
   )
 })
