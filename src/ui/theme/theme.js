@@ -7,6 +7,7 @@ export const theme = {
     lightGray: '#A7A7A7',
     white: '#ffffff',
     darkWhite: '#F4F4F4',
+    whiteSmoke: '#E9E9E9',
     errorColor: '#E50202',
     successColor: '#27AE60',
     lola: '#BAB3C0',
