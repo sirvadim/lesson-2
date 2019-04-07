@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { styled } from '@ui/theme'
-import { IconClose } from '@ui/atoms'
+import { styled, withTheme } from '@ui/theme'
+import { IconClose, VBox } from '@ui/atoms'
 import { HLevel4 } from '@ui/atoms/Typography'
 
 const Container = styled.div`
@@ -24,7 +24,7 @@ const TitleContainer = styled.div`
   text-align: center;
 `
 
-export const ModalHeader = ({ children, action }) => (
+export const ModalHeader = withTheme(({ children, action, theme }) => (
   <Container>
     <IconContainer onClick={action}>
       <IconClose />
@@ -36,8 +36,9 @@ export const ModalHeader = ({ children, action }) => (
     ) : (
       children
     )}
+    <VBox width={theme.paddings.half} />
   </Container>
-)
+))
 
 ModalHeader.propTypes = {
   children: PropTypes.node,
