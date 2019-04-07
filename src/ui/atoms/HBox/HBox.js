@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types'
-import { styled, theme } from '@ui/theme'
+import { styled } from '@ui/theme'
 
 export const HBox = styled.div`
-  height: ${props => props.height}px;
+  height: ${props =>
+    typeof props.height === 'number'
+      ? props.height
+      : props.theme.paddings.main}px;
 `
 
 HBox.propTypes = {
   height: PropTypes.number,
-}
-
-HBox.defaultProps = {
-  height: theme.paddings.main,
 }

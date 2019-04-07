@@ -60,7 +60,7 @@ storiesOf('ui/pages', module).add('Exchange', () => {
           />
           <HBox />
           <CheckboxWithText onPress={action('onPress checkbox')}>
-            Со всеми условиями согласен вторая строка
+            Со всеми условиями согласен, возможно вторая строка
           </CheckboxWithText>
         </Wrapper>
       </Flex1>

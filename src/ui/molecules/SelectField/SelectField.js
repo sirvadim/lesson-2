@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { styled, theme } from '@ui/theme'
+import { styled, withTheme } from '@ui/theme'
 import { FieldContainer, HBox, IconExpand } from '@ui/atoms'
 import { InputError, InputTip, Body1 } from '@ui/atoms/Typography'
 import { FormLabel, FormAdornment } from '@ui/molecules'
@@ -29,21 +29,23 @@ const ValueContainer = styled.div`
   justify-content: space-around;
 `
 
-export const SelectField = ({ label, error, onPress, tip, value }) => (
-  <FieldContainer>
-    <FormLabel>{label}</FormLabel>
-    <HBox height={theme.paddings.half} />
-    <SelectFieldContainer error={error} onClick={onPress}>
-      <ValueContainer>
-        <Body1>{value}</Body1>
-      </ValueContainer>
-      <FormAdornment>
-        <IconExpand />
-      </FormAdornment>
-    </SelectFieldContainer>
-    <HBox height={theme.paddings.half} />
-    {error ? <InputError>{error}</InputError> : <InputTip>{tip}</InputTip>}
-  </FieldContainer>
+export const SelectField = withTheme(
+  ({ label, error, onPress, tip, value, theme }) => (
+    <FieldContainer>
+      <FormLabel>{label}</FormLabel>
+      <HBox height={theme.paddings.half} />
+      <SelectFieldContainer error={error} onClick={onPress}>
+        <ValueContainer>
+          <Body1>{value}</Body1>
+        </ValueContainer>
+        <FormAdornment>
+          <IconExpand />
+        </FormAdornment>
+      </SelectFieldContainer>
+      <HBox height={theme.paddings.half} />
+      {error ? <InputError>{error}</InputError> : <InputTip>{tip}</InputTip>}
+    </FieldContainer>
+  ),
 )
 
 SelectField.propTypes = {

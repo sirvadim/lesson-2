@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { styled, theme } from '@ui/theme'
+import { styled, withTheme } from '@ui/theme'
 import { FieldContainer, HBox, Flex1, VBox } from '@ui/atoms'
 import { InputError, InputTip } from '@ui/atoms/Typography'
 import { FormLabel, SelectInput } from '@ui/molecules'
@@ -17,46 +17,49 @@ const StyledText = styled.div`
   color: ${({ theme }) => theme.pallete.nero};
 `
 
-export const DeliveryTime = ({
-  fromValue,
-  toValue,
-  fromAction,
-  toAction,
-  fromError,
-  toError,
-  tip,
-}) => (
-  <FieldContainer>
-    <FormLabel>Время доставки</FormLabel>
-    <HBox height={theme.paddings.half} />
-    <Row>
-      <Flex1>
-        <SelectInput
-          value={fromValue}
-          onPress={fromAction}
-          error={fromError}
-          startAdornment="от"
-        />
-      </Flex1>
-      <VBox />
-      <StyledText>&mdash;</StyledText>
-      <VBox />
-      <Flex1>
-        <SelectInput
-          value={toValue}
-          onPress={toAction}
-          error={toError}
-          startAdornment="до"
-        />
-      </Flex1>
-    </Row>
-    <HBox height={theme.paddings.half} />
-    {fromError || toError ? (
-      <InputError>{fromError || toError}</InputError>
-    ) : (
-      <InputTip>{tip}</InputTip>
-    )}
-  </FieldContainer>
+export const DeliveryTime = withTheme(
+  ({
+    theme,
+    fromValue,
+    toValue,
+    fromAction,
+    toAction,
+    fromError,
+    toError,
+    tip,
+  }) => (
+    <FieldContainer>
+      <FormLabel>Время доставки</FormLabel>
+      <HBox height={theme.paddings.half} />
+      <Row>
+        <Flex1>
+          <SelectInput
+            value={fromValue}
+            onPress={fromAction}
+            error={fromError}
+            startAdornment="от"
+          />
+        </Flex1>
+        <VBox />
+        <StyledText>&mdash;</StyledText>
+        <VBox />
+        <Flex1>
+          <SelectInput
+            value={toValue}
+            onPress={toAction}
+            error={toError}
+            startAdornment="до"
+          />
+        </Flex1>
+      </Row>
+      <HBox height={theme.paddings.half} />
+      {fromError || toError ? (
+        <InputError>{fromError || toError}</InputError>
+      ) : (
+        <InputTip>{tip}</InputTip>
+      )}
+    </FieldContainer>
+  ),
 )
 
 DeliveryTime.propTypes = {

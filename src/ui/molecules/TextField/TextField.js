@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { HBox, VBox, IconLoader, IconSuccess, FieldContainer } from '@ui/atoms'
 import { InputError, InputTip } from '@ui/atoms/Typography'
 import { FormLabel, FormAdornment } from '@ui/molecules'
-import { styled, theme } from '@ui/theme'
+import { styled, withTheme } from '@ui/theme'
 
 const TextFieldContainer = styled.div`
   box-sizing: border-box;
@@ -41,67 +41,70 @@ const StyledInput = styled.input`
   }
 `
 
-export const TextField = ({
-  startAdornment,
-  endAdornment,
-  status,
-  disabled,
-  placeholder,
-  label,
-  error,
-  value,
-  tip,
-  valid,
-  onChange,
-  onBlur,
-  onFocus,
-}) => {
-  const [focused, setFocused] = useState(false)
-  const handleFocus = e => {
-    if (onFocus) {
-      onFocus(e)
+export const TextField = withTheme(
+  ({
+    theme,
+    startAdornment,
+    endAdornment,
+    status,
+    disabled,
+    placeholder,
+    label,
+    error,
+    value,
+    tip,
+    valid,
+    onChange,
+    onBlur,
+    onFocus,
+  }) => {
+    const [focused, setFocused] = useState(false)
+    const handleFocus = e => {
+      if (onFocus) {
+        onFocus(e)
+      }
+      setFocused(true)
     }
-    setFocused(true)
-  }
-  const handleBlur = e => {
-    if (onBlur) {
-      onBlur(e)
+    const handleBlur = e => {
+      if (onBlur) {
+        onBlur(e)
+      }
+      setFocused(false)
     }
-    setFocused(false)
-  }
-  return (
-    <FieldContainer>
-      <FormLabel valid={valid}>{label}</FormLabel>
-      <HBox height={theme.paddings.half} />
-      <TextFieldContainer focused={focused} error={error}>
-        {startAdornment ? (
-          <FormAdornment>{startAdornment}</FormAdornment>
-        ) : (
-          <VBox />
-        )}
-        <StyledInput
-          placeholder={placeholder ? placeholder : ''}
-          disabled={disabled}
-          value={value}
-          onChange={e => onChange(e.currentTarget.value)}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-        />
-        <FormAdornment>
-          {status === 'loading' ? (
-            <IconLoader />
-          ) : status === 'success' ? (
-            <IconSuccess />
-          ) : endAdornment ? (
-            endAdornment
-          ) : null}
-        </FormAdornment>
-      </TextFieldContainer>
-      <HBox height={theme.paddings.half} />
-      {error ? <InputError>{error}</InputError> : <InputTip>{tip}</InputTip>}
-    </FieldContainer>
-  )
-}
+    return (
+      <FieldContainer>
+        <FormLabel valid={valid}>{label}</FormLabel>
+        <HBox height={theme.paddings.half} />
+        <TextFieldContainer focused={focused} error={error}>
+          {startAdornment ? (
+            <FormAdornment>{startAdornment}</FormAdornment>
+          ) : (
+            <VBox />
+          )}
+          <StyledInput
+            placeholder={placeholder ? placeholder : ''}
+            disabled={disabled}
+            value={value}
+            onChange={e => onChange(e.currentTarget.value)}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+          <FormAdornment>
+            {status === 'loading' ? (
+              <IconLoader />
+            ) : status === 'success' ? (
+              <IconSuccess />
+            ) : endAdornment ? (
+              endAdornment
+            ) : null}
+          </FormAdornment>
+        </TextFieldContainer>
+        <HBox height={theme.paddings.half} />
+        {error ? <InputError>{error}</InputError> : <InputTip>{tip}</InputTip>}
+      </FieldContainer>
+    )
+  },
+)
 
 TextField.propTypes = {
   status: PropTypes.oneOf(['loading', 'success']),
