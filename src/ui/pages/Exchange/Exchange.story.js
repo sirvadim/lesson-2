@@ -7,6 +7,7 @@ import {
   ButtonAccent,
   SelectField,
   CheckboxWithText,
+  TextField,
 } from '@ui/molecules'
 import { action } from '@storybook/addon-actions'
 
@@ -18,7 +19,7 @@ storiesOf('ui/pages', module).add('Exchange', () => {
   return (
     <PageTemplate>
       <Header icon="back" />
-      <Flex1 style={{ overflowY: 'auto' }}>
+      <Flex1>
         <Wrapper>
           <SelectField
             label="Страна 1"
@@ -30,6 +31,24 @@ storiesOf('ui/pages', module).add('Exchange', () => {
             value="Англия"
             onPress={action('onPress select2')}
           />
+          <Divider />
+          <HBox />
+          <TextField
+            label="Российский рубль (RUB)"
+            onChange={action('textfield1 change')}
+            tip="Текст подсказки к полю"
+            value="100"
+            endAdornment="₽"
+          />
+          <HBox />
+          <TextField
+            label="Фунт стерлингов (GBP)"
+            onChange={action('textfield2 change')}
+            value="1"
+            tip="Текст подсказки к полю"
+            endAdornment="£"
+          />
+          <HBox />
           <CheckboxWithText onPress={action('onPress checkbox')}>
             Со всеми условиями согласен вторая строка
           </CheckboxWithText>

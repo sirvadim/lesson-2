@@ -43,6 +43,7 @@ const StyledInput = styled.input`
 
 export const TextField = ({
   startAdornment,
+  endAdornment,
   status,
   disabled,
   placeholder,
@@ -87,8 +88,13 @@ export const TextField = ({
           onBlur={handleBlur}
         />
         <FormAdornment>
-          {status === 'loading' ? <IconLoader /> : null}
-          {status === 'success' ? <IconSuccess /> : null}
+          {status === 'loading' ? (
+            <IconLoader />
+          ) : status === 'success' ? (
+            <IconSuccess />
+          ) : endAdornment ? (
+            endAdornment
+          ) : null}
         </FormAdornment>
       </TextFieldContainer>
       <HBox height={theme.paddings.half} />
@@ -107,6 +113,7 @@ TextField.propTypes = {
   tip: PropTypes.string,
   valid: PropTypes.bool,
   startAdornment: PropTypes.node,
+  endAdornment: PropTypes.node,
 
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func,
