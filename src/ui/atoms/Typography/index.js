@@ -1,5 +1,7 @@
 export { Body1 } from './Body1/Body1'
 export { Body2 } from './Body2/Body2'
+export { Body2Failure } from './Body2Failure/Body2Failure'
+export { Body2Success } from './Body2Success/Body2Success'
 export { HLevel4 } from './HLevel4/HLevel4'
 export { ButtonText } from './ButtonText/ButtonText'
 export { InputLabel } from './InputLabel/InputLabel'
