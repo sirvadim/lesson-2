@@ -1,20 +1,13 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { HBox, VBox, IconLoader, IconSuccess } from '@ui/atoms'
+import { HBox, VBox, IconLoader, IconSuccess, FieldContainer } from '@ui/atoms'
 import { InputError, InputTip } from '@ui/atoms/Typography'
 import { FormLabel, FormAdornment } from '@ui/molecules'
 import { styled, theme } from '@ui/theme'
 
-const Container = styled.div`
-  height: 88px;
-  display: flex;
-  flex-direction: column;
-`
-
-const FieldContainer = styled.div`
+const TextFieldContainer = styled.div`
   box-sizing: border-box;
-  padding-left: ${({ theme }) => theme.paddings.main};
   display: flex;
   flex-direction: row;
   border-radius: 4px;
@@ -76,10 +69,10 @@ export const TextField = ({
     setFocused(false)
   }
   return (
-    <Container>
+    <FieldContainer>
       <FormLabel valid={valid}>{label}</FormLabel>
       <HBox height={theme.paddings.half} />
-      <FieldContainer focused={focused} error={error}>
+      <TextFieldContainer focused={focused} error={error}>
         {startAdornment ? (
           <FormAdornment>{startAdornment}</FormAdornment>
         ) : (
@@ -97,10 +90,10 @@ export const TextField = ({
           {status === 'loading' ? <IconLoader /> : null}
           {status === 'success' ? <IconSuccess /> : null}
         </FormAdornment>
-      </FieldContainer>
+      </TextFieldContainer>
       <HBox height={theme.paddings.half} />
       {error ? <InputError>{error}</InputError> : <InputTip>{tip}</InputTip>}
-    </Container>
+    </FieldContainer>
   )
 }
 
