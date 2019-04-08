@@ -10,7 +10,9 @@
 
 Ссылки:
 formik https://github.com/jaredpalmer/formik
+
 yup https://github.com/jquense/yup
+
 redux-form https://redux-form.com/8.1.0/
 
 ### Дедлайн
