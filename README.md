@@ -2,11 +2,21 @@
 
 ## Домашнее задание
 
-- 
+- переписать компонент Checkbox/CheckboxWithText для работы с formik
+- подключить formik и yup к странице Exchange
+
 
 ### Дополнительные задания
 
-- 
+- полключить react-router v5.0
+- сделать 4 страницу модал
+
+### Ссылки:
+formik https://github.com/jaredpalmer/formik
+
+yup https://github.com/jquense/yup
+
+redux-form https://redux-form.com/8.1.0/
 
 ### Дедлайн
 
