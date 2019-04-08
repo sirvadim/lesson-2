@@ -1,15 +1,13 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { PageTemplate, HBox } from '@ui/atoms'
-import { styled } from '@ui/theme'
-import { Body2 } from '@ui/atoms/Typography'
-import { ModalHeader, SearchInput } from '@ui/molecules'
+import { ModalHeader, SearchInput, SearchStatus } from '@ui/molecules'
 import { CountriesList } from '@ui/organisms'
 
 storiesOf('ui/pages', module).add('SelectCountry', () => {
   return (
     <PageTemplate>
-      <ModalHeader>
+      <ModalHeader action={console.log}>
         <SearchInput onChange={console.log} />
       </ModalHeader>
       <HBox />
@@ -21,6 +19,7 @@ storiesOf('ui/pages', module).add('SelectCountry', () => {
         ]}
         selectCountry={console.log}
       />
+      <SearchStatus status="initial" />
     </PageTemplate>
   )
 })
