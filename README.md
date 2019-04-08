@@ -8,7 +8,8 @@
 
 ### Дополнительные задания
 
-- 
+- полключить react-router v5.0
+- сделать 4 страницу модал
 
 ### Ссылки:
 formik https://github.com/jaredpalmer/formik
