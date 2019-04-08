@@ -42,5 +42,5 @@ CheckboxWithText.propTypes = {
   value: PropTypes.bool,
   onPress: PropTypes.func.isRequired,
   error: PropTypes.string,
-  disabled: PropTypes.string,
+  disabled: PropTypes.bool,
 }
