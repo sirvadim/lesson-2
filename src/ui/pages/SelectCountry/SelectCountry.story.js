@@ -1,14 +1,10 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { PageTemplate, HBox, Flex1, Divider } from '@ui/atoms'
+import { PageTemplate, HBox } from '@ui/atoms'
 import { styled } from '@ui/theme'
 import { Body2 } from '@ui/atoms/Typography'
 import { ModalHeader, SearchInput } from '@ui/molecules'
-import { action } from '@storybook/addon-actions'
-
-const Wrapper = styled.div`
-  padding: ${({ theme }) => theme.paddings.main}px;
-`
+import { CountriesList } from '@ui/organisms'
 
 storiesOf('ui/pages', module).add('SelectCountry', () => {
   return (
@@ -16,6 +12,15 @@ storiesOf('ui/pages', module).add('SelectCountry', () => {
       <ModalHeader>
         <SearchInput onChange={console.log} />
       </ModalHeader>
+      <HBox />
+      <CountriesList
+        title={'История поиска'}
+        list={[
+          { title: 'Российская Федерация', id: 'RF' },
+          { title: 'Соединенные Штаты Америки', id: 'USA' },
+        ]}
+        selectCountry={console.log}
+      />
     </PageTemplate>
   )
 })

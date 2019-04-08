@@ -2,6 +2,7 @@ export const theme = {
   pallete: {
     radicalRed: '#FF3F6E',
     nero: '#000000',
+    neroGray: '#7A7A7A',
     gray2: '#222222',
     silver: '#BDBDBD',
     lightGray: '#A7A7A7',
