@@ -141,7 +141,7 @@ export const Registration = () => {
                 <HBox />
                 <RadiobuttonGroup label="Пол" text1="муж." text2="жен." />
                 <HBox />
-                <CheckboxField
+                {/* <CheckboxField
                   // component="checkbox"
                   name="terms"
                   // type="checkbox"
@@ -158,7 +158,7 @@ export const Registration = () => {
                     // console.log('valid?', props.isValid)
                   }}
                 />
-                <HBox />
+                <HBox /> */}
                 <CheckboxWithText
                   children="Со всеми условиями согласен вторая строка"
                   onChange={value => {
