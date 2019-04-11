@@ -17,8 +17,8 @@ class App extends Component {
           {/* <div className="App">
             <Body2>lesson1</Body2>
           </div> */}
-          {/* <Registration /> */}
-          <Exchange />
+          <Registration />
+          {/* <Exchange /> */}
         </>
       </ThemeProvider>
     )

@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const IconRadioButtonOff = ({ color }) => (
-  <svg width={20} height={20} fill="none">
-    <circle cx={10} cy={10} r={9.5} stroke={color ? color : '#D3D3D3'} />
+export const IconRadiobuttonOff = ({ color }) => (
+  <svg width={24} height={24} fill="none">
+    <circle cx={12} cy={12} r={10} stroke={color ? color : '#D3D3D3'} />
   </svg>
 )
 
-IconRadioButtonOff.propTypes = {
+IconRadiobuttonOff.propTypes = {
   color: PropTypes.string,
 }
